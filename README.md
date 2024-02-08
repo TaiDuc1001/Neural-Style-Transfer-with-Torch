@@ -1,5 +1,7 @@
 # Neural Style Transfer with PyTorch
 
+This neural network is a special one because the parameters needed to be updated **are not** the weights and biases, they are the pixels of the generated image. Assume the generated image's size is **28x28** with **3 color channels**, so the total parameters will be `28x28x3`.
+
 This project implements Neural Style Transfer using PyTorch, a technique that combines the content of one image with the style of another image. The core idea is to use a pre-trained convolutional neural network to extract content and style features from input images, and then optimize a target image to minimize both the content loss and the style loss.
 
 ## Content Image
@@ -11,6 +13,9 @@ This project implements Neural Style Transfer using PyTorch, a technique that co
 ## Generated GIF
 Here is a GIF showing the progression of generated images during the Neural Style Transfer process:
 
+<img src="generated_images.gif" alt="Generated GIF" width="400"/>
+
+
 
 ## Overview
 1. **VGG Model**: Utilizes a VGG-19 model pre-trained on ImageNet to extract features from input images.
@@ -19,14 +24,15 @@ Here is a GIF showing the progression of generated images during the Neural Styl
 4. **Training Loop**: Optimizes the generated image to minimize the total loss, which is a combination of content and style losses.
 
 ## How to Use
-1. **Install Dependencies**: Make sure to have PyTorch, torchvision, matplotlib, and PIL installed in your environment.
-2. **Prepare Images**: Choose a content image and a style image. These images should be in the "Assets" folder.
+1. **Install Dependencies**: Make sure to have PyTorch, torchvision, matplotlib, and PIL installed in your environment. Or `pip install -r requirements.txt`.
+2. **Prepare Images**: Choose a content image and a style image. These images should be in the "Assets" folder. You can try out other content and style images to see the magic.
 3. **Run the Code**: Execute the provided Python script for Neural Style Transfer. I found out that `2000 epochs` is best for this size.
 
 ## Files Included
 - `nst_torch.py`: Main Python script containing the implementation of Neural Style Transfer.
 - `Assets`: Folder containing example content and style images.
 - `Gans_Torch`: Output folder where generated images and loss logs are stored.
+- `requirements.txt`: TXT file includes python dependencies for this project.
 
 ## Results
 The generated images are saved periodically during training, allowing for the observation of how the style of the output image evolves over time.
